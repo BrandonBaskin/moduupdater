@@ -1,0 +1,1 @@
+﻿This folder contains the minimal code to run the CMS Model Updater GUI. Run: python main.py\nIncluded: core app modules, mapping and wizard engines, validators, KB manager, and required data folders (database, learning_data).

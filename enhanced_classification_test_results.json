@@ -1,0 +1,328 @@
+{
+  "summary": {
+    "total_tests": 20,
+    "correct_classifications": 7,
+    "accuracy_percent": 0.0,
+    "editor_instructions": 8,
+    "user_input_required": 3
+  },
+  "detailed_results": [
+    {
+      "test_number": 1,
+      "description": "Standard insert placeholder",
+      "variable": "[insert 2025 plan name]",
+      "expected_type": "insert",
+      "actual_type": "select_one_with_embedded_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "2025PlanName",
+      "behavior": "complex_selection",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 2,
+      "description": "Basic option selection",
+      "variable": "[select one: Yes/No]",
+      "expected_type": "select_one",
+      "actual_type": "select_one",
+      "correct": true,
+      "confidence": 0.9,
+      "field_id": "yesNo",
+      "behavior": "present_options",
+      "editor_instruction": false,
+      "requires_user_input": true
+    },
+    {
+      "test_number": 3,
+      "description": "Optional conditional content",
+      "variable": "[Optional] You may also request a printed copy.",
+      "expected_type": "optional",
+      "actual_type": "if_applicable_nested_modifier",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "optionalYouMayAlsoRequestPrintedCopy",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 4,
+      "description": "Conditional deletion instruction",
+      "variable": "[Delete if not applicable]",
+      "expected_type": "delete_if",
+      "actual_type": "if_applicable_instructional_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "deleteNot",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 5,
+      "description": "Simple conditional insertion",
+      "variable": "[Insert if applicable: URLs, notices]",
+      "expected_type": "if_applicable",
+      "actual_type": "if_applicable_instructional_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "urlsNotices",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 6,
+      "description": "Compound conditional with specific condition and insert text",
+      "variable": "[Plans with grandfathered members who were outside of area prior to January 1999, insert: If you have been a member of our plan continuously since before January 1999...]",
+      "expected_type": "if_applicable_compound_conditional",
+      "actual_type": "if_applicable_compound_conditional",
+      "correct": true,
+      "confidence": 0.9,
+      "field_id": "plansWithGrandfatheredMembersWhoWereOutsideOfAreaPriorToJanuary1999YouHaveBeenMemberOfOurPlanContinuouslySinceBeforeJanuary1999",
+      "behavior": "manual_review",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 7,
+      "description": "Instructional insert requiring custom drafting",
+      "variable": "[if a continuation area is offered under 42 CFR 422.54, insert: generally here and add a sentence describing the continuation area]",
+      "expected_type": "if_applicable_instructional_insert",
+      "actual_type": "if_applicable_compound_conditional",
+      "correct": false,
+      "confidence": 0.9,
+      "field_id": "continuationAreaIsOfferedUnder42Cfr42254GenerallyHereAddSentenceDescribingContinuationArea",
+      "behavior": "manual_review",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 8,
+      "description": "Inline term pruning instruction",
+      "variable": "[Remove terms as needed to reflect plan benefits]",
+      "expected_type": "instructional_inline_deletion",
+      "actual_type": "instructional_inline_deletion",
+      "correct": true,
+      "confidence": 0.9,
+      "field_id": "removeTermsAsNeededToReflectPlanBenefits",
+      "behavior": "prune_terms",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 9,
+      "description": "Complex structured geographic data insertion",
+      "variable": "[Insert plan service area here or within an appendix. Plans may include references to territories... Our service area includes these states: [insert states]... counties in [insert state]: [insert counties]... parts of counties: [insert county] with [insert zip codes]]",
+      "expected_type": "complex_structural_insert",
+      "actual_type": "complex_structural_insert",
+      "correct": true,
+      "confidence": 0.9,
+      "field_id": "planServiceAreaHereWithinAppendixPlansMayIncludeReferencesToTerritoriesOurServiceAreaIncludesTheseStatesStatesCountiesInStateCountiesPartsOfCountiesCountyWithZipCodes",
+      "behavior": "structured_input_form",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 10,
+      "description": "Regulatory compliance conditional insertion",
+      "variable": "[Regional PPOs that CMS has granted permission to use the exception in \u00a7 422.112(a)(1)(ii) to meet access requirements should insert: Because our Plan is a Regional Preferred Provider Organization...]",
+      "expected_type": "regulatory_conditional_insert",
+      "actual_type": "if_applicable_instructional_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "regionalPposThatCmsHasGrantedPermissionToUseExceptionIn4221121IiToMeetAccessRequirementsShouldBecauseOurPlanIsRegionalPreferredProviderOrganization",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 11,
+      "description": "Nested contextual modifier",
+      "variable": "[insert as applicable: also]",
+      "expected_type": "if_applicable_nested_modifier",
+      "actual_type": "select_one_with_embedded_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "asAlso",
+      "behavior": "complex_selection",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 12,
+      "description": "URL insertion with validation",
+      "variable": "[insert URL]",
+      "expected_type": "insert_url",
+      "actual_type": "insert_url",
+      "correct": true,
+      "confidence": 0.9,
+      "field_id": "url",
+      "behavior": "url_input",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 13,
+      "description": "Structural deletion with renumbering",
+      "variable": "[Delete Optional Supplemental Benefit Premium bullet if your plan doesn't offer optional supplemental benefits. Renumber remaining sections as appropriate.]",
+      "expected_type": "instructional_structural_deletion",
+      "actual_type": "if_applicable_instructional_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "deleteOptionalSupplementalBenefitPremiumBulletYourPlanDoesnTOfferOptionalSupplementalBenefitsRenumberRemainingSectionsAsAppropriate",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 14,
+      "description": "Complex selection with embedded inserts",
+      "variable": "[Select one of the following: For 2025, the monthly premium for [insert 2025 plan name] is [insert monthly premium amount]. OR The table below shows the monthly plan premium amount for each region we serve.]",
+      "expected_type": "select_one_with_embedded_insert",
+      "actual_type": "select_one",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "ofFollowingFor2025MonthlyPremiumFor2025PlanNameIsMonthlyPremiumAmountTableBelowShowsMonthlyPlanPremiumAmountForEachRegionWeServe",
+      "behavior": "present_options",
+      "editor_instruction": false,
+      "requires_user_input": true
+    },
+    {
+      "test_number": 15,
+      "description": "Paragraph replacement instruction",
+      "variable": "[Plans with no premium should replace the preceding paragraph with: You do not pay a separate monthly plan premium for [insert 2025 plan name].]",
+      "expected_type": "instructional_replacement_prior_paragraph",
+      "actual_type": "instructional_replacement_prior_paragraph",
+      "correct": true,
+      "confidence": 0.8,
+      "field_id": "plansWithNoPremiumShouldReplacePrecedingParagraphWithYouDoNotPaySeparateMonthlyPlanPremiumFor2025PlanName",
+      "behavior": "paragraph_replacement",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 16,
+      "description": "Permissive conditional content addition",
+      "variable": "[Plans that include a Part B premium reduction benefit may describe the benefit within this section.]",
+      "expected_type": "permissive_conditional_insert",
+      "actual_type": "instructional_cross_reference_requirement",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "plansThatIncludePartBPremiumReductionBenefitMayDescribeBenefitWithinThisSection",
+      "behavior": "manual_review",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 17,
+      "description": "Clause omission with sentence preservation",
+      "variable": "[Plans with no monthly premium, omit: In addition to paying the monthly plan premium,]",
+      "expected_type": "instructional_clause_omission",
+      "actual_type": "instructional_replacement_prior_paragraph",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "plansWithNoMonthlyPremiumOmitInAdditionToPayingMonthlyPlanPremium",
+      "behavior": "paragraph_replacement",
+      "editor_instruction": true,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 18,
+      "description": "Cross-reference structural requirement",
+      "variable": "[If the plan describes optional supplemental benefits within Chapter 4, then the plan must include the premium amounts for those benefits in this section.]",
+      "expected_type": "instructional_cross_reference_requirement",
+      "actual_type": "if_applicable_instructional_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "planDescribesOptionalSupplementalBenefitsWithinChapter4ThenPlanMustIncludePremiumAmountsForThoseBenefitsInThisSection",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    },
+    {
+      "test_number": 19,
+      "description": "Inline numeric value insertion",
+      "variable": "[insert number of payment options]",
+      "expected_type": "insert_numeric_inline",
+      "actual_type": "insert_numeric_inline",
+      "correct": true,
+      "confidence": 0.9,
+      "field_id": "numberOfPaymentOptions",
+      "behavior": "numeric_input",
+      "editor_instruction": false,
+      "requires_user_input": true
+    },
+    {
+      "test_number": 20,
+      "description": "Composite plan-specific details insertion",
+      "variable": "[Insert plan specifics regarding premium/penalty payment intervals (e.g., monthly, quarterly), how they can pay by check, including an address, whether they can drop off a check in person...]",
+      "expected_type": "insert_plan_specifics_composite",
+      "actual_type": "if_applicable_instructional_insert",
+      "correct": false,
+      "confidence": 0.8,
+      "field_id": "planSpecificsRegardingPremiumPenaltyPaymentIntervalsEGMonthlyQuarterlyHowTheyCanPayByCheckIncludingAddressWhetherTheyCanDropOffCheckInPerson",
+      "behavior": "manual_review",
+      "editor_instruction": false,
+      "requires_user_input": false
+    }
+  ],
+  "type_breakdown": {
+    "select_one_with_embedded_insert": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "select_one": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 50.0
+    },
+    "if_applicable_nested_modifier": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "if_applicable_instructional_insert": {
+      "total": 6,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "if_applicable_compound_conditional": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 50.0
+    },
+    "instructional_inline_deletion": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "complex_structural_insert": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "insert_url": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "instructional_replacement_prior_paragraph": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 50.0
+    },
+    "instructional_cross_reference_requirement": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "insert_numeric_inline": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    }
+  }
+}
