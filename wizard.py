@@ -5,11 +5,16 @@ from tkinter import ttk, messagebox
 from typing import List, Dict, Optional
 import re
 
+from docx import Document
 from config import Config
 from ui_utils import UIUtils
 from document_parser import DocumentParser
 from validators import validate_by_type
-from variable_utils import normalize_variable_name
+from variable_utils import (
+    normalize_variable_name,
+    iter_all_paragraphs,
+    iter_all_text_nodes,
+)
 # Wizard UI
 class WizardUI(tk.Toplevel):
     """Wizard UI for interactive logic block processing."""
